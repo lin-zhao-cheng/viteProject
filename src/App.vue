@@ -3,15 +3,18 @@ import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
+  <div class=" bg-black ">
+    <!-- <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    </a> -->
+    <h1 class="text-3xl font-bold text-blue-600">Hello Tailwind</h1>
+
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  
+  <!-- <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>
