@@ -1,20 +1,12 @@
 <script setup>
-import HelloWorld from '@/components/HelloWorld.vue'
+import AppMain from "@/components/AppMain.vue";
 </script>
 
 <template>
-  <div class=" bg-black ">
-    <!-- <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a> -->
-    <h1 class="text-3xl font-bold text-blue-600">Hello Tailwind</h1>
-
+  <div id="layout" class=" overflow-x-hidden overflow-y-hidden">
+    <AppMain />
   </div>
-  
-  <!-- <HelloWorld msg="Vite + Vue" /> -->
+
 </template>
 
 <style scoped>
