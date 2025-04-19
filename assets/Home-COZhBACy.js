@@ -1,0 +1,1 @@
+import{_ as t,c as s,a as o,o as c}from"./index-CVJEzJvk.js";const a={},n={class:"p-6 text-center w-svw bg-slate-400"};function r(l,e){return c(),s("div",n,e[0]||(e[0]=[o("h1",{class:"text-3xl font-bold text-blue-600"},"首頁",-1)]))}const d=t(a,[["render",r]]);export{d as default};
