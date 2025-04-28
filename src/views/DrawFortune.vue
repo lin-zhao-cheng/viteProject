@@ -37,7 +37,7 @@
               <div
                 class="absolute w-full h-full rounded-lg shadow-lg backface-hidden bg-white transform rotateY-180 p-4 flex flex-col justify-around">
                 <div class="text-yellow-700 font-bold text-lg mb-2">{{ currentFortune.title }}</div>
-                <div class="text-gray-700 whitespace-pre-line text-md  leading-relaxed">{{ currentFortune.content }}
+                <div class="text-gray-700 whitespace-pre-line text-md  leading-relaxed text-start">{{ currentFortune.content }}
                 </div>
                 <div class="text-right text-[1rem] text-gray-500 mt-2">{{ currentFortune.source }}</div>
               </div>
@@ -127,11 +127,6 @@ const fortunes = [
     source: '出處《希望新生》'
   },
   {
-    title: '🌻 讚美是最簡單的心鑰 🌻',
-    content: `其實跟別人說幾句讚美的話，\n他就開心了，\n但我們總把事情搞得太複雜，\n不會用非常簡單的方式處理。`,
-    source: '出處《希望新生》'
-  },
-  {
     title: '🌻 凡事都從「好」處看 🌻',
     content: `養成一種習慣，\n一看就會看到別人哪裡好、\n哪裡善良、\n哪裡無私、今天幫忙多少人，\n\n都從這樣的角度去看待別人，\n沿著這樣的方向，\n假以時日自己就會體會到越來\n越多的幸福感。`,
     source: '出處《希望新生》'
@@ -141,7 +136,28 @@ const fortunes = [
     content: `慈悲心是幸福的──\n\n你對別人慈悲，\n結果自己會覺得幸福，\n很像「予人玫瑰，手留餘香」的感覺。\n\n所以一定要學會\n對家人、周圍的人多生慈悲心，\n多表達自己的感恩心。`,
     source: '出處《希望新生》'
   },
-]
+  {
+    title: '🌻 感恩之人最富足 🌻',
+    content: `當我們慢慢練習感恩心，\n會更廣闊地看到更多人、\n更多生命在此時此刻對一切的付出。\n\n任何好的事情都不是從天而降，\n要學會感恩大眾。\n\n有人說：\n「哪裡有貧窮？抱怨的人就貧窮。\n哪裡有富足？感恩的人就富足。」`,
+    source: '出處《希望新生》'
+  },
+  {
+    title: '☀️ 幸福的起點 ☀️',
+    content: `不是對方給了我們多少理解、多少安慰，\n成為我們幸福的依靠；\n\n而是我們自己內心的善意，\n才是幸福真正的起點。`,
+    source: '出處《希望新生》'
+  },
+  {
+    title: '🌻 離苦先助人 🌻',
+    content: `在自己痛苦的時候，\n能選擇先去幫助別人，\n這樣的人一定會幸福的！`,
+    source: '出處《希望新生》'
+  },
+  {
+    title: '🌻 幸福的籌碼 🌻',
+    content: `感恩心是幸福的籌碼，\n\n心裡裝得越多，\n實際上幸福感會越強。`,
+    source: '出處《希望新生》'
+  }
+];
+
 
 // ✨ 新增：10張圖片的陣列
 const images = [
@@ -155,6 +171,19 @@ const images = [
   './img/fortune8.png',
   './img/fortune9.png',
   './img/fortune10.png',
+  './img/fortune11.png',
+  './img/fortune12.png',
+  './img/fortune13.png',
+  './img/fortune14.png',
+  './img/fortune15.jpg',
+  './img/fortune16.jpg',
+  './img/fortune17.jpg',
+  './img/fortune18.jpg',
+  './img/fortune19.png',
+  './img/fortune20.png',
+  './img/fortune21.png',
+  './img/fortune22.png',
+  './img/fortune23.png',
 ]
 
 // 祈求流程
