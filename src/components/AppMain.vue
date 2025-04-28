@@ -12,7 +12,7 @@ const route = useRoute();
 </script>
 
 <template>
-  <main class=" min-h-screen" >
+  <main class=" min-h-screen w-full" >
     <router-view :key="$route.fullPath" v-slot="{ Component }">
       <KeepAlive >
         <component :is="Component" />
