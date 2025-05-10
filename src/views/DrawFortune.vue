@@ -26,7 +26,7 @@
       <!-- 🎴 主卡片出現 -->
       <transition name="fade">
         <div v-if="showCard" class="flex flex-col items-center space-y-4">
-          <div class="relative perspective w-5/6 h-[28rem]" @click="flipCard">
+          <div class="relative perspective w-5/6 h-[36rem]" @click="flipCard">
             <div class="w-full h-full transition-transform duration-700 transform-style preserve-3d"
               :class="{'rotateY-180': isFlipped}">
               <!-- 正面：圖片 -->
@@ -35,18 +35,19 @@
               </div>
               <!-- 背面：籤文 -->
               <div
-                class="absolute w-full h-full rounded-lg shadow-lg backface-hidden bg-white transform rotateY-180 p-4 flex flex-col justify-around">
-                <div class="text-yellow-700 font-bold text-lg mb-2">{{ currentFortune.title }}</div>
+                class="absolute w-full h-full rounded-lg shadow-lg backface-hidden bg-white transform rotateY-180  flex flex-col justify-around">
+                <!-- <div class="text-yellow-700 font-bold text-lg mb-2">{{ currentFortune.title }}</div>
                 <div class="text-gray-700 whitespace-pre-line text-md  leading-relaxed text-start">{{ currentFortune.content }}
                 </div>
-                <div class="text-right text-[1rem] text-gray-500 mt-2">{{ currentFortune.source }}</div>
+                <div class="text-right text-[1rem] text-gray-500 mt-2">{{ currentFortune.source }}</div> -->
+                <img :src="backImage" class="w-full h-full object-cover" />
               </div>
             </div>
           </div>
 
           <!-- 提示文字（翻開） -->
           <div v-if="!isFlipped" class="text-yellow-600 mt-8 font-bold text-[1.5rem] animate-fadein-up">
-            請點擊卡片翻開查看籤文
+            請點擊卡片翻開查看花朵
           </div>
 
           <!-- 活動按鈕 -->
@@ -117,76 +118,91 @@ const isFlipped = ref(false)
 const showModal = ref(false)
 const currentFortune = ref({})
 const mainImage = ref('') // 不預設單一張，等抽到時再設定
+const backImage = ref('')
 
 // 四則籤文
 // 四則籤文
+// const fortunes = [
+//   {
+//     title: '🌻 最幸福的人 🌻',
+//     content: `當我的心對別人\n所做的一切感到麻木的時候，\n是自己的心變冷酷了吧？\n\n心變冷了，自己會幸福嗎？\n絕對不會。\n\n心裡裝著滿滿的感恩的人，\n是最幸福的。`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '🌻 凡事都從「好」處看 🌻',
+//     content: `養成一種習慣，\n一看就會看到別人哪裡好、\n哪裡善良、\n哪裡無私、今天幫忙多少人，\n\n都從這樣的角度去看待別人，\n沿著這樣的方向，\n假以時日自己就會體會到越來\n越多的幸福感。`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '🌻 慈悲心就是幸福 🌻',
+//     content: `慈悲心是幸福的──\n\n你對別人慈悲，\n結果自己會覺得幸福，\n很像「予人玫瑰，手留餘香」的感覺。\n\n所以一定要學會\n對家人、周圍的人多生慈悲心，\n多表達自己的感恩心。`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '🌻 感恩之人最富足 🌻',
+//     content: `當我們慢慢練習感恩心，\n會更廣闊地看到更多人、\n更多生命在此時此刻對一切的付出。\n\n任何好的事情都不是從天而降，\n要學會感恩大眾。\n\n有人說：\n「哪裡有貧窮？抱怨的人就貧窮。\n哪裡有富足？感恩的人就富足。」`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '☀️ 幸福的起點 ☀️',
+//     content: `不是對方給了我們多少理解、多少安慰，\n成為我們幸福的依靠；\n\n而是我們自己內心的善意，\n才是幸福真正的起點。`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '🌻 離苦先助人 🌻',
+//     content: `在自己痛苦的時候，\n能選擇先去幫助別人，\n這樣的人一定會幸福的！`,
+//     source: '出處《希望新生》'
+//   },
+//   {
+//     title: '🌻 幸福的籌碼 🌻',
+//     content: `感恩心是幸福的籌碼，\n\n心裡裝得越多，\n實際上幸福感會越強。`,
+//     source: '出處《希望新生》'
+//   }
+// ];
+
+
+// // ✨ 新增：10張圖片的陣列
+// const images = [
+//   './img/fortune1.JPG',
+//   './img/fortune2.JPG',
+//   './img/fortune3.JPG',
+//   './img/fortune4.JPG',
+//   './img/fortune5.jpg',
+//   './img/fortune6.JPG',
+//   './img/fortune7.JPG',
+
+// ]
+
+// // 祈求流程
+// const drawFortune = () => {
+//   isAnimating.value = true
+//   showCard.value = false
+//   isFlipped.value = false
+
+//   setTimeout(() => {
+//     const randomIndex = Math.floor(Math.random() * fortunes.length)
+//     currentFortune.value = fortunes[randomIndex]
+
+//     // ✨ 抽一張隨機圖片
+//     const imageIndex = Math.floor(Math.random() * images.length)
+//     mainImage.value = images[imageIndex]
+
+//     isAnimating.value = false
+//     showCard.value = true
+//   }, 3000)
+// }
 const fortunes = [
-  {
-    title: '🌻 最幸福的人 🌻',
-    content: `當我的心對別人\n所做的一切感到麻木的時候，\n是自己的心變冷酷了吧？\n\n心變冷了，自己會幸福嗎？\n絕對不會。\n\n心裡裝著滿滿的感恩的人，\n是最幸福的。`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '🌻 凡事都從「好」處看 🌻',
-    content: `養成一種習慣，\n一看就會看到別人哪裡好、\n哪裡善良、\n哪裡無私、今天幫忙多少人，\n\n都從這樣的角度去看待別人，\n沿著這樣的方向，\n假以時日自己就會體會到越來\n越多的幸福感。`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '🌻 慈悲心就是幸福 🌻',
-    content: `慈悲心是幸福的──\n\n你對別人慈悲，\n結果自己會覺得幸福，\n很像「予人玫瑰，手留餘香」的感覺。\n\n所以一定要學會\n對家人、周圍的人多生慈悲心，\n多表達自己的感恩心。`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '🌻 感恩之人最富足 🌻',
-    content: `當我們慢慢練習感恩心，\n會更廣闊地看到更多人、\n更多生命在此時此刻對一切的付出。\n\n任何好的事情都不是從天而降，\n要學會感恩大眾。\n\n有人說：\n「哪裡有貧窮？抱怨的人就貧窮。\n哪裡有富足？感恩的人就富足。」`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '☀️ 幸福的起點 ☀️',
-    content: `不是對方給了我們多少理解、多少安慰，\n成為我們幸福的依靠；\n\n而是我們自己內心的善意，\n才是幸福真正的起點。`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '🌻 離苦先助人 🌻',
-    content: `在自己痛苦的時候，\n能選擇先去幫助別人，\n這樣的人一定會幸福的！`,
-    source: '出處《希望新生》'
-  },
-  {
-    title: '🌻 幸福的籌碼 🌻',
-    content: `感恩心是幸福的籌碼，\n\n心裡裝得越多，\n實際上幸福感會越強。`,
-    source: '出處《希望新生》'
-  }
-];
-
-
-// ✨ 新增：10張圖片的陣列
-const images = [
-  './img/fortune1.png',
-  './img/fortune2.png',
-  './img/fortune3.png',
-  './img/fortune4.png',
-  './img/fortune5.jpg',
-  './img/fortune6.png',
-  './img/fortune7.png',
-  './img/fortune8.png',
-  './img/fortune9.png',
-  './img/fortune10.png',
-  './img/fortune11.png',
-  './img/fortune12.png',
-  './img/fortune13.png',
-  './img/fortune14.png',
-  './img/fortune15.jpg',
-  './img/fortune16.jpg',
-  './img/fortune17.jpg',
-  './img/fortune18.jpg',
-  './img/fortune19.png',
-  './img/fortune20.png',
-  './img/fortune21.png',
-  './img/fortune22.png',
-  './img/fortune23.png',
+  // 示例：每個項目代表一個籤詩內容
+  { text: '大吉', image: './img/fortune1.JPG', back: './img/back1.JPG' },
+  { text: '中吉', image: './img/fortune2.JPG', back: './img/back2.JPG' },
+  { text: '小吉', image: './img/fortune3.JPG', back: './img/back3.JPG' },
+  { text: '末吉', image: './img/fortune4.JPG', back: './img/back4.JPG' },
+  { text: '凶',   image: './img/fortune5.jpg', back: './img/back5.JPG' },
+  { text: '半凶', image: './img/fortune6.JPG', back: './img/back6.JPG' },
+  { text: '大凶', image: './img/fortune7.JPG', back: './img/back7.JPG' }
 ]
 
-// 祈求流程
+// 抽籤邏輯
 const drawFortune = () => {
   isAnimating.value = true
   showCard.value = false
@@ -194,16 +210,17 @@ const drawFortune = () => {
 
   setTimeout(() => {
     const randomIndex = Math.floor(Math.random() * fortunes.length)
-    currentFortune.value = fortunes[randomIndex]
+    const selected = fortunes[randomIndex]
 
-    // ✨ 抽一張隨機圖片
-    const imageIndex = Math.floor(Math.random() * images.length)
-    mainImage.value = images[imageIndex]
+    currentFortune.value = selected
+    mainImage.value = selected.image
+    backImage.value = selected.back
 
     isAnimating.value = false
     showCard.value = true
   }, 3000)
 }
+
 
 // 翻開卡片
 const flipCard = () => {
